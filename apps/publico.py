@@ -194,9 +194,9 @@ checklist_posicao = dbc.FormGroup(
         dbc.Label("Escolha um:"),
         dbc.Checklist(
             options=[
-                    {'label': 'Mais à esquerda', 'value':'Mais à esquerda'},
-                    {'label': 'No centro ', 'value': 'No centro '},
-                    {'label': 'Mais à direita?', 'value': 'Mais à direita?'},
+                    {'label': 'Mais à esquerda', 'value':'Mais á esquerda'},
+                    {'label': 'No centro ', 'value': 'No centro ou'},
+                    {'label': 'Mais à direita', 'value': 'Mais á direita'},
             ],
             value=[ ],
             id="switches-posicao",
@@ -230,11 +230,11 @@ checklist_internet = dbc.FormGroup(
         dbc.Label("Escolha um:"),
         dbc.Checklist(
             options=[
-                    {'label': 'Não acessam a Internet', 'value': 'nao acessa'},
-                    {'label': 'Acessa por Wi-fi', 'value': 'acessa'},
-                    {'label': 'Acesso apenas por Rede do celular,', 'value': '3g'},
+                    {'label': 'Não acessam a Internet', 'value': 'sem_internet'},
+                    {'label': 'Acessa por Wi-fi', 'value': 'internet_wifi'},
+                    {'label': 'Acesso apenas por Rede do celular,', 'value': 'internet_3g'},
             ],
-            value=[ ''],
+            value=[ ],
             id="switches-internet",
             inline=True,
             switch=True
@@ -261,7 +261,7 @@ def sliderselect(socio):
         check = checklist_posicao
     elif socio == "Raça":
          check = checklist_raca
-    elif socio == "Acesso a internet":
+    elif socio == "Acesso à internet":
          check = checklist_internet
     return check
 
@@ -291,7 +291,7 @@ rows_cards = html.Div(
                 dbc.Col(html.Div(card_mapa("Religião")),  className='col-lg-4'),
                 dbc.Col(html.Div(card_mapa("Posição política")),  className='col-lg-4'),
                 dbc.Col(html.Div(card_mapa("Raça")),  className='col-lg-4'),
-                dbc.Col(html.Div(card_mapa("Acesso a internet")), className='col-lg-4')
+                dbc.Col(html.Div(card_mapa("Acesso à internet")), className='col-lg-4')
             ],
             align="start",
         ),
@@ -386,7 +386,7 @@ def update_fig_genero(sw_values):
 
 ### INTERNET
 @app.callback(
-    Output('grafico-classe-Acesso a internet','figure'),
+    Output('grafico-classe-Acesso à internet','figure'),
     Input('switches-internet','value')
 )
 def update_fig_genero(sw_values):

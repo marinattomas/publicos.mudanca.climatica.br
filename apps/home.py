@@ -39,18 +39,18 @@ layout = lb.defineLayout(especifico,[True,False,False,False])
 def update_img_home(btn1,btn2,btn3,btn4):
     changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
     if 'btn-pag_1' in changed_id:
-        caminho = '/assets/campanha_1.png'
+        caminho = '/assets/home_1.png'
         fig = go.Figure()
     elif 'btn-pag_2' in changed_id:
-        caminho = '/assets/campanha_2.png'
+        caminho = '/assets/home_2.png'
         fig = go.Figure()
     elif 'btn-pag_3' in changed_id:
-        caminho = '/assets/campanha_3.png'
+        caminho = '/assets/home_3.png'
         fig = go.Figure()
     elif 'btn-pag_4' in changed_id:
-        caminho = '/assets/campanha_4.png'
+        caminho = '/assets/home_4.png'
         fig = go.Figure()
     else:
-        caminho = '/assets/campanha_0.png'
+        caminho = '/assets/home_1.png'
         fig = go.Figure()
     return caminho

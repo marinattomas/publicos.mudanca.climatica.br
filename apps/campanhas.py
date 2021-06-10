@@ -12,10 +12,10 @@ import numpy as np
 nomes_classes = ['Antenados','Perdidos','Desligados','Céticos']
 faixas_idade = ['18 a 24 anos','25 a 34 anos','35 a 44 anos','45 a 54 anos','55 anos ou mais']
 colors = ['#56CC9D','#FFCE67','#F3969A','#F96C44']
-cores_classe ={'1': ['#D7234E','#E4465D','#EE636E','#F3807F','#F39D92','#ECBAA6' ],
-               '2': ['#8d474a','#aa5659','#ce696c','#fa7e83','#fcbdbf','#fddddd'],
-               '3': ['#ff9958','#ff9958','#ff9958','#ff9958','#ff9958','#ff9958'],
-               '4': ['#d39600','#e8a500','#ffb600','#ffc940','#ffdb80','#ffedc0']}
+cores_classe ={'1': ['#56CC9D','#56CC9D','#56CC9D','#56CC9D','#56CC9D','#56CC9D' ],
+               '2': ['#FFCE67','#FFCE67','#FFCE67','#FFCE67','#FFCE67','#FFCE67'],
+               '3': ['#F3969A','#F3969A','#F3969A','#F3969A','#F3969A','#F3969A'],
+               '4': ['#F96C44','#F96C44','#F96C44','#F96C44','#F96C44','#F96C44']}
 markers = ['circle','square','diamond','x','star','triangle-up']
 
 def plotDotMatrix(df,n_linhas,total=100,asc=False):
@@ -147,7 +147,7 @@ def caminho_graf_social(socio):
         classes = pd.read_csv("Data/prop_REGIAO.csv")
     elif socio == 'raca':
         classes = pd.read_csv("Data/prop_RACA.csv")
-    elif socio == 'posicao_politica':
+    elif socio == 'Posicao_politica':
         classes = pd.read_csv("Data/prop_Posicao_politica.csv")
     elif socio == 'classe':
         classes = pd.read_csv("Data/prop_CLASSE.csv")

@@ -161,23 +161,23 @@ def update_img_explicativa(clickdata,btn1,btn2,btn3,btn4):
 
     if ('btn-Antenados' in changed_id) or (click=='Antenados'):
         grupo_selecionado = 1
-        caminho = '/assets/campanha_1.png'
+        caminho = '/assets/publico_1.png'
         fig = plotaGraficoPerguntas(1)
     elif ('btn-Perdidos' in changed_id) or (click=='Perdidos') :
         grupo_selecionado = 2
-        caminho = '/assets/campanha_2.png'
+        caminho = '/assets/publico_2.png'
         fig = plotaGraficoPerguntas(2)
     elif ('btn-Desligados' in changed_id) or (click=='Desligados'):
         grupo_selecionado = 3
-        caminho = '/assets/campanha_3.png'
+        caminho = '/assets/publico_3.png'
         fig = plotaGraficoPerguntas(3)
     elif ('btn-Ceticos' in changed_id) or (click=='Ceticos'):
         grupo_selecionado = 4
-        caminho = '/assets/campanha_4.png'
+        caminho = '/assets/publico_4.png'
         fig = plotaGraficoPerguntas(4)
     else:
         grupo_selecionado = 0
-        caminho = '/assets/campanha_0.png'
+        caminho = '/assets/publico_0.png'
         layout = go.Layout(
         plot_bgcolor="#FFF",  # Sets background color to white
         xaxis=dict(

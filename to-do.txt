@@ -1,0 +1,30 @@
+- campanhas:
+    - label no axis (y) no gráfico (talvez não precise pq dotmatix)
+    - dot matrix nas características (def plotdotmatrix)
+    - mudar os eixos no grafico
+    - talvez um lollipop? - dUMBELL??
+
+- publico:
+    - não sei se gráfico ta bom para entender
+    - alguns callbacks não rodaram
+     - ajustar callback para quando todos os filtros estiverem selecionados + de 1
+     - linha 265 seleciona sex
+    - mudar legenda
+    - melhorar aproveitamento de espaço.
+
+- Grupos
+    - em grupos: selecionar NO GRÁFICO TB
+
+-home
+    - GARANTIR QUE INICIA NA HOME
+    - TROCAR FIGURAS (mARINA TOMÁS)
+
+- more: 
+    - uma página de como usar
+    - uma página de sobre o projeto
+
+- descobrir aquele negócio <>
+
+se tiver tempo
+    - em grupos, ter um gráfico realmente em branco, ao invés de gráfico sem dados se não tiver nenhum grupo selecionado. 
+    - arredondar o número e colocar uma % no hover dos gráficos

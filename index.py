@@ -5,13 +5,11 @@ from dash.dependencies import Input, Output
 from app import app
 from apps import home, grupos, campanhas, publico, como, sobre
 
-
+server = app.server
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.Div(id='page-content')
 ])
-
-
 
 @app.callback(Output('page-content', 'children'),
               Input('url', 'pathname'))

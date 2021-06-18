@@ -211,6 +211,12 @@ def update_img_perguntas(clickdata,grupo_selecionado):
 
             if pergunta == 'amb_preocupa':  id_pergunta=1
             elif pergunta == 'amb_prioridade': id_pergunta=2
+            elif pergunta == 'clima_importante': id_pergunta=3
+            elif pergunta == 'clima_acontecendo': id_pergunta=4
+            elif pergunta == 'clima_humano_j': id_pergunta=5
+            elif pergunta == 'clima_cientista_conc': id_pergunta=6
+            elif pergunta == 'clima_futuro': id_pergunta=7
+            elif pergunta == 'clima_voce': id_pergunta=8
 
             nome_figura = f"""pergunta{id_pergunta}_grupo{grupo_selecionado}.png"""
         else:

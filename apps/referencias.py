@@ -23,6 +23,6 @@ especifico = html.Div([dbc.Row(justify="center"),
 
 
 
-texto_p="""Use essa página para entender como funciona cada uma das páginas do dashboard clicando nos links do menu abaixo"""
+texto_p="""Esta página contém informações complementares sobre os responsáveis pelo banco de dados original e as referências que basearam a escolha de campanhas para os públicos identificados e a aplicação do método de análise de classes latentes """
 
 layout = lb.defineLayout(especifico,[True,True,True,True],texto_p,tipo_pag='outro')

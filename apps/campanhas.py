@@ -332,7 +332,8 @@ especifico = html.Div(
                                                     html.Br(),
                                                     html.Div(className='d-flex justify-content-around',
                                                                       children=[botoes]),
-                                                    html.H4('Texto de teste')
+                                                    dcc.Markdown("Para mais informações sobre as referências usadas para criar as campanhas acesse a página [Informações gerais](http://percepcao-brasil-mudclima.herokuapp.com/apps/sobre)", className='text'),
+
                                                         ]
                                                 )
                                               )

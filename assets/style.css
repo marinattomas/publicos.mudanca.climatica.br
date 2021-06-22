@@ -44,6 +44,8 @@ h3 {
 
 h2 {
      font-size: x-large;
+     margin: 10px;
+     padding: 0px 20px;
 }
 
 h4 {
@@ -53,7 +55,7 @@ h4 {
 
 .text{
   margin: 10px;
-  padding: 25px;
+  padding: 20px;
   align-self: center;
 }
 

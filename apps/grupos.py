@@ -13,7 +13,15 @@ import plotly.graph_objects as go
 nomes_classes = ['Antenados','Perdidos','Desligados','Céticos']
 grupo_selecionado = 0
 colors = ['#56CC9D','#FFCE67','#F96C44','#F3969A']
-
+dict_perguntas  = {"amb_procupa": "Preocupa meio ambiente",
+"amb_prioridade": "Prioridade proteger meio ambiente",
+"clima_importante": "Questão mudanças climática é importante",
+"clima_acontecendo": "Mudanças climáticas estão acontecendo",
+"clima_humano_j" : "Mudanças climáticas são causadas por humanos",
+"clima_cientista_conc": "Cientistas acham que mudanças climáticas estão acontecendo",
+"clima_futuro":"Mudanças climáticas pode prejudicar gerações futuras",
+"clima_voce":"Mudanças climáticas pode prejudicar você e a sua família"
+}
 def plotaGraficoClasse():
     classes = pd.read_csv("Data/prop_sex.csv")
     classes =classes[classes["sex"] == 'Feminino']
@@ -74,9 +82,11 @@ def plotaGraficoPerguntas(classe):
     fig.add_trace(go.Bar(
                         x = perguntas['l1'],
                         y = perguntas['value'],
-                        marker_color=color_perg(classe)
+                        marker_color=color_perg(classe),
     ))
     fig.update_yaxes( range=[0,1])
+    #fig.update_xaxes( tickmode = array,
+    #                  ticktext= dict_perguntas)
     return fig
 
 drop_class = dcc.Dropdown(
@@ -116,23 +126,26 @@ img_pergunta = html.Div(className='col-lg-12',
                          children=html.Img(id='img-pergunta',className="img-fluid"))
 
 especifico = html.Div( html.Div(dbc.Card(html.Div(children=[
-                                                             html.Br(),
+                                                            html.Br(),
                                                             html.Div(html.H2('Entendendo seus grupos')),
+                                                            dcc.Markdown("O gráfico abaixa mostra as porcentagens de cada uma das audiências indentificadas na população brasileira, clique nas barras ou nos botões abaixo para entender mais sobre cada uma delas.", className='text'),
                                                             #html.Br(),
                                                             html.Div(className='row',
                                                                      children=[grafico_classe
                                                                               ]),
-                                                            html.Div(className='d-flex justify-content-around',
-                                                                      children=[botoes]),
-                                                            html.Br(),
+                                                            #html.Br(),
                                                             html.Div(className='row',
                                                                      children=[
                                                                                img_explicativa]),
-                                                            # html.Br(),
+                                                            #html.Br(),
+                                                            html.Div(className='d-flex justify-content-around',
+                                                                      children=[botoes]),
                                                             html.Div(className='row',
                                                                      children=[grafico_perguntas,
                                                                        img_pergunta,
-                                                                       dcc.Store(id='store-grupo-selecionado')])
+                                                                       dcc.Store(id='store-grupo-selecionado')]),
+                                                            dcc.Markdown("Para mais informações sobre as perguntas e opções de respostas acesse a página [Informações gerais](http://percepcao-brasil-mudclima.herokuapp.com/apps/sobre)", className='text'),
+
                                       ] ))))
 
 
@@ -170,7 +183,7 @@ def update_img_explicativa(clickdata,btn1,btn2,btn3,btn4):
         grupo_selecionado = 3
         caminho = '/assets/publico_3.png'
         fig = plotaGraficoPerguntas(3)
-    elif ('btn-Ceticos' in changed_id) or (click=='Ceticos'):
+    elif ('btn-Ceticos' in changed_id) or (click=='Céticos'):
         grupo_selecionado = 4
         caminho = '/assets/publico_4.png'
         fig = plotaGraficoPerguntas(4)

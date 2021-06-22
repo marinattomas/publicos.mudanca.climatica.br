@@ -22,7 +22,7 @@ def defineLayout(especifico,ativo,texto_padrao=texto_p,tipo_pag='padrão'):
             dbc.DropdownMenu(
                 children=[
                     dbc.DropdownMenuItem("Mais Informações", header=True),
-                    dbc.DropdownMenuItem("Como usar", href="/apps/como"),
+                    dbc.DropdownMenuItem("Referências", href="/apps/referencias"),
                     dbc.DropdownMenuItem("Informações gerais", href="/apps/sobre"),
                 ],
                 nav=True,

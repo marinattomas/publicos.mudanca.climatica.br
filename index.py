@@ -3,7 +3,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 
 from app import app
-from apps import home, grupos, campanhas, publico, como, sobre
+from apps import home, grupos, campanhas, publico, referencias, sobre
 
 server = app.server
 app.layout = html.Div([
@@ -22,8 +22,8 @@ def display_page(pathname):
         return campanhas.layout
     elif pathname == '/apps/publico':
         return publico.layout
-    elif pathname == '/apps/como':
-        return como.layout
+    elif pathname == '/apps/referencias':
+        return referencias.layout
     elif pathname == '/apps/sobre':
         return sobre.layout
     else:

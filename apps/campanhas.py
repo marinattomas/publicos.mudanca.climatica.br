@@ -194,15 +194,6 @@ def plotaGrafico_socio(socio,classe):
         )
     )
     fig = go.Figure(layout=layout)
-#SUBSTITUIR AQUI GRAFICO BOLINHAS
-    #plotar cem bolinhas - cinco de vinte
-    #bolinhas = pd.DataFrame(columns=['x','y'])
-    #for i in [1,2,3,4,5]:
-    #    for j in [1,2,3,4,5,6,7,8,9,10]:
-    #        bolinhas = bolinhas.append({'x':i,'y':j},ignore_index=True )
-    #print(bolinhas)
-
-    #fig = go.Figure(data=go.Scatter(x=bolinhas['x'], y=bolinhas['y'], mode='markers'))
 
     i=0
     for serie in series:
@@ -285,18 +276,6 @@ def plotaGraficoClasse():
                             marker_color=colors
     ))
     return fig
-#callback para dropdown
-#input(dropdown tal)
-#output(id,figure )
-#função que da a figura grafico
-# def update_fig(valor do dropdown)
-
-
-#callback para output slider
-#input(dropdown tal)
-#output(id,figure )
-#função que da a figura grafico
-# def update_fig(valor do dropdown)
 
 #grafico clase tem as 4 classes pra selecionar
 grafico_comp = html.Div([dcc.Graph(id='grafico-classe',
@@ -337,19 +316,8 @@ drop_socio = dcc.Dropdown(
     )
 
 
-img_campanhas = html.Div(className='col-lg-6',
-                         children=html.Img(id='img_campanhas'))
-
-
-
-
-#callback para slider
-#mudança da o intervalo
-#input(dropdown tal)
-#output(id,figure )
-#função que da a figura grafico
-# def update_fig(valor do dropdown)
-
+img_campanhas = html.Div(className='col-lg-12',
+                         children=html.Img(id='img_campanhas',className="img-fluid"))
 
 especifico = html.Div(
                 [html.Div(className="row",

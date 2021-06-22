@@ -35,7 +35,7 @@ def plotaGraficoClasse():
     fig.add_trace(go.Bar(
                             x = nomes_classes,
                             y = classes.freq_br,
-                            marker_color=colors
+                            marker_color= colors,
     ))
     fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide')
     fig.update_layout(clickmode='event+select')
@@ -107,14 +107,13 @@ grafico_classe = html.Div([dcc.Graph(id='grafico-classe',
                           className='col-lg-12')
 
 img_explicativa = html.Div(className='col-lg-12',
-                         children=html.Img(id='img-grupos'))
-
+                         children=html.Img(id='img-grupos',className="img-fluid"))
 
 grafico_perguntas = html.Div([dcc.Graph(id='grafico-perguntas')],
                           className='col-lg-12')
 
-img_pergunta = html.Div(className='col-lg-6',
-                         children=html.Img(id='img-pergunta'))
+img_pergunta = html.Div(className='col-lg-12',
+                         children=html.Img(id='img-pergunta',className="img-fluid"))
 
 especifico = html.Div( html.Div(dbc.Card(html.Div(children=[
                                                              html.Br(),

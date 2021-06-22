@@ -5,8 +5,10 @@ from dash.dependencies import Input, Output
 
 from app import app
 
-texto_p = """Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-   standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."""
+texto_p = """
+Esse dashboard utiliza os dados da pesquisa MUDANÇAS CLIMÁTICAS NA PERCEPÇÃO DOS BRASILEIROS para identificar quais são os grupos de percepção sobre as mudanças climáticas presentes no Brasil através análise de classes latentes.
+      
+A pesquisa original é uma parceria do  ITS, com o programa de comunicação das mudanças climáticas da Universidade de Yale (Yale Program on Climate Change Communication), e o dashboard é um produto do programa de bolsas desta mesma pesquisa. As entrevistas foram realizadas  entre os dias 24 de setembro a 16 de outubro de 2020 pelo IBOPE Inteligência e mais informações estão disponíveis no endereço [https://www.percepcaoclimatica.com.br/](https://www.percepcaoclimatica.com.br/)"""
 
 def defineLayout(especifico,ativo,texto_padrao=texto_p,tipo_pag='padrão'):
 
@@ -19,20 +21,21 @@ def defineLayout(especifico,ativo,texto_padrao=texto_p,tipo_pag='padrão'):
         children=[
             dbc.DropdownMenu(
                 children=[
-                    dbc.DropdownMenuItem("Mais", header=True),
+                    dbc.DropdownMenuItem("Mais Informações", header=True),
                     dbc.DropdownMenuItem("Como usar", href="/apps/como"),
-                    dbc.DropdownMenuItem("Sobre o projeto", href="/apps/sobre"),
+                    dbc.DropdownMenuItem("Informações gerais", href="/apps/sobre"),
                 ],
                 nav=True,
                 in_navbar=True,
-                label="More",
+                label="Mais informações",
             ),
         ],
-        brand="PBMC - Percepção de Brasileiros das Mudanças Climáticas",
+        brand="Percepção dos Brasileiros sobre as Mudanças Climáticas",
         brand_href="/apps/home",
         color="primary",
         dark=True,
-        className='navbar fixed-top'
+        className='navbar fixed-top',
+        style={'padding-left':'25px'}
     )
 
 
@@ -49,16 +52,16 @@ def defineLayout(especifico,ativo,texto_padrao=texto_p,tipo_pag='padrão'):
     )
 
     rodape = dbc.NavbarSimple(
-        children=[html.Div('Desenvolvido e ilustrado por Marina Tomás')],
+        children=[html.Div(dcc.Markdown('Desenvolvido e ilustrado por [Marina Tomás](https://linktr.ee/sciartmari)'))],
         brand_href="#",
         color="primary",
         dark=True,
         className='navbar bottom'
     )
 
-    titulo = html.Div([html.H2('Os grupos brasileiros de percepção das mudanças climáticas',style={'padding-top':'75px','padding-bottom':'20px'}),
-        html.P(f"""{texto_padrao}""",
-           style={'padding-top':'10px','padding-bottom':'40px','padding-left':'25px','padding-right':'25px'})])
+    titulo = html.Div([html.H2('Os grupos brasileiros de percepção das mudanças climáticas',style={'padding-top':'75px','padding-bottom':'20px','padding-left':'25px','padding-right':'25px'}),
+         dcc.Markdown(f"""{texto_padrao}""",
+           style={'padding-top':'10px','padding-bottom':'40px','padding-left':'25px','padding-right':'25px','text-align': 'justify'})])
 
     if tipo_pag=='padrão':
         layout = html.Div([navbar,

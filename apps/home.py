@@ -18,8 +18,8 @@ button_group = dbc.ButtonGroup(
 
 
 
-img_home = html.Div(className='col-lg-6',
-                         children=html.Img(id='img_home'))
+img_home = html.Div(className='col-lg-12',
+                         children=html.Img(id='img_home',className="img-fluid"))
 
 especifico = html.Div([dbc.Row(button_group, justify="center"),
                         html.Br(),

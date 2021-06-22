@@ -179,7 +179,7 @@ checklist_religiao = dbc.FormGroup(
                     {'label': 'Católica', 'value': 'Católica'},
                     {'label': 'Protestante', 'value': 'Protestante'},
                     {'label': 'Outras Religiões', 'value': 'Outras Religiões'},
-                    {'label': 'Ateu/Agnóstico/Não segue religião', 'value': 'Ateu'},
+                    {'label': 'Ateu/Agnóstico/Não segue religião', 'value': 'Ateu'}
             ],
             value=[],
             id="switches-religiao",
@@ -189,17 +189,17 @@ checklist_religiao = dbc.FormGroup(
     ]
 )
 
-checklist_posicao = dbc.FormGroup(
+checklist_Posicao_politica = dbc.FormGroup(
     [
         dbc.Label("Escolha um:"),
         dbc.Checklist(
             options=[
-                    {'label': 'Mais à esquerda', 'value':'Mais á esquerda'},
-                    {'label': 'No centro ', 'value': 'No centro ou'},
-                    {'label': 'Mais à direita', 'value': 'Mais á direita'},
+                    {'label': 'Mais à esquerda', 'value':"esquerda"},
+                    {'label': 'No centro', 'value': "centro"},
+                    {'label': 'Mais à direita', 'value': "direita"},
             ],
-            value=[ ],
-            id="switches-posicao",
+            value=[],
+            id="switches-Posicao_politica",
             inline=True,
             switch=True
         ),
@@ -257,8 +257,8 @@ def sliderselect(socio):
          check = checklist_classe
     elif socio == "Religião":
          check = checklist_religiao
-    elif socio == "Posição política":
-        check = checklist_posicao
+    elif socio == "Posição Política":
+        check = checklist_Posicao_politica
     elif socio == "Raça":
          check = checklist_raca
     elif socio == "Acesso à internet":
@@ -289,7 +289,7 @@ rows_cards = html.Div(
                 dbc.Col(html.Div(  card_mapa("Região")),  className='col-lg-4'),
                 dbc.Col(html.Div(card_mapa("Classe social")),  className='col-lg-4'),
                 dbc.Col(html.Div(card_mapa("Religião")),  className='col-lg-4'),
-                dbc.Col(html.Div(card_mapa("Posição política")),  className='col-lg-4'),
+                dbc.Col(html.Div(card_mapa("Posição Política")),  className='col-lg-4'),
                 dbc.Col(html.Div(card_mapa("Raça")),  className='col-lg-4'),
                 dbc.Col(html.Div(card_mapa("Acesso à internet")), className='col-lg-4')
             ],
@@ -366,10 +366,10 @@ def update_fig_genero(sw_values):
     fig = plotaGraficoClasse('RELIGIAO',sw_values)
     return fig
 
-#### POSICAO POLITICA
+#### Posicao_politica
 @app.callback(
-    Output('grafico-classe-Posição política','figure'),
-    Input('switches-posicao','value')
+    Output('grafico-classe-Posição Política','figure'),
+    Input('switches-Posicao_politica','value')
 )
 def update_fig_genero(sw_values):
     fig = plotaGraficoClasse('Posicao_politica',sw_values)

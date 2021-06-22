@@ -137,6 +137,8 @@ especifico = html.Div( html.Div(dbc.Card(html.Div(children=[
                                                             html.Div(className='row',
                                                                      children=[
                                                                                img_explicativa]),
+                                                            html.Div(className='text',
+                                                                     id='text_grupos'),
                                                             #html.Br(),
                                                             html.Div(className='d-flex justify-content-around',
                                                                       children=[botoes]),
@@ -156,6 +158,7 @@ layout = lb.defineLayout(especifico,[False,True,False,False])
     Output('img-grupos','src'),
     Output('grafico-perguntas','figure'),
     Output('store-grupo-selecionado','data'),
+    Output('text_grupos','children'),
     Input('grafico-classe','clickData'),
     Input('btn-Antenados','n_clicks'),
     Input('btn-Perdidos','n_clicks'),
@@ -164,29 +167,47 @@ layout = lb.defineLayout(especifico,[False,True,False,False])
     )
 def update_img_explicativa(clickdata,btn1,btn2,btn3,btn4):
     changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
-    print('esseé ó changeid',changed_id)
-    #ctx = dash.callback_context
-    #ctx = ctx.triggered[0]['prop_id'].split('.')[0]
     click=0
     if 'grafico-classe' in changed_id:
         click=clickdata['points'][0]['x']
-
     if ('btn-Antenados' in changed_id) or (click=='Antenados'):
         grupo_selecionado = 1
         caminho = '/assets/publico_1.png'
         fig = plotaGraficoPerguntas(1)
+        text = "Os antenados são aqueles que acreditam que as mudanças climáticas são reais e se tratam de um tema importante." \
+               " Eles se preocupam com o meio ambiente e  priorizam sua proteção mesmo que isso signifique um menor crescimento econômico " \
+               "e menos empregos. Este grupo tem conhecimento de que as mudanças climáticas têm causa humana e que os cientistas concordam " \
+               "que elas estão acontecendo, e acreditam que as mudanças climáticas vão afetar as gerações futuras e também a eles mesmos ou" \
+               " sua família."
     elif ('btn-Perdidos' in changed_id) or (click=='Perdidos') :
         grupo_selecionado = 2
         caminho = '/assets/publico_2.png'
         fig = plotaGraficoPerguntas(2)
+        text = "Os Perdidos, assim como os Antenados, acreditam que as mudanças climáticas são reais e importantes, " \
+               "ainda que com uma probabilidade um pouco menor. O grupo também concorda que as mudanças climáticas afetarão" \
+               "eles mesmos ou sua família, e também as gerações futuras.  Nas demais perguntas, porém, este grupo não tem" \
+               "tanta certeza. A maioria ainda acredita que as mudanças climáticas têm causa humana, mas nem todos os membros " \
+               "afirmam estar preocupados com o meio ambiente, que acham mais importante proteger o meio ambiente mesmo que " \
+               "isso signifique um menor crescimento econômico e que os cientistas concordam que as mudanças climáticas estão acontecendo."
     elif ('btn-Desligados' in changed_id) or (click=='Desligados'):
         grupo_selecionado = 3
         caminho = '/assets/publico_3.png'
         fig = plotaGraficoPerguntas(3)
+        text= "Os desligados acreditam que as mudanças climáticas são reais e importantes, e tem uma alta probabilidade de " \
+               "responder que a causa delas é a ação humana e que os cientistas concordam que elas estão acontecendo, ainda que" \
+               " com uma probabilidade menor que os Antenados. Este grupo porém está dividido sobre proteger o meio ambiente ou" \
+               " promover o crescimento econômico, tem baixa probabilidade de responder que se preocupa com o meio ambiente e nenhum" \
+               " dos membros acredita que as mudanças climáticas irão impactar sua família ou eles pessoalmente. Já se tratando do futuro" \
+               " os membros estão divididos, com uma ligeira maioria acreditando que as mudanças climáticas vão afetar as próximas gerações."
     elif ('btn-Ceticos' in changed_id) or (click=='Céticos'):
         grupo_selecionado = 4
         caminho = '/assets/publico_4.png'
         fig = plotaGraficoPerguntas(4)
+        text='Os Céticos não acreditam que as mudanças climáticas são reais, tem causa humana, que os cientistas ' \
+               'concordam ou que estas vão afetar sua família, eles mesmos ou as próximas gerações. Este grupo considera ' \
+               'mais importante promover o crescimento econômico e a geração de empregos, mesmo que isso prejudique o meio' \
+               ' ambiente, e tem baixa probabilidade de se declarar preocupado com o meio ambiente. Apenas na pergunta se o ' \
+               'aquecimento global é uma questão importante alguns membros apresentaram respostas divergentes, ainda que  a maioria declarou que não.'
     else:
         grupo_selecionado = 0
         caminho = '/assets/publico_0.png'
@@ -204,7 +225,8 @@ def update_img_explicativa(clickdata,btn1,btn2,btn3,btn4):
         )
         fig = go.Figure(layout=layout)
         fig.update_yaxes( range=[0,1])
-    return caminho, fig, grupo_selecionado
+        text = ""
+    return caminho, fig, grupo_selecionado,text
 
 @app.callback(
     Output('img-pergunta','src'),
@@ -235,3 +257,4 @@ def update_img_perguntas(clickdata,grupo_selecionado):
             nome_figura = 'pergunta0.png'
     print(nome_figura)
     return '/assets/'+nome_figura
+

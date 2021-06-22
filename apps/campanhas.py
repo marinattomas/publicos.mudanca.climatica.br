@@ -12,10 +12,10 @@ import numpy as np
 nomes_classes = ['Antenados','Perdidos','Desligados','Céticos']
 faixas_idade = ['18 a 24 anos','25 a 34 anos','35 a 44 anos','45 a 54 anos','55 anos ou mais']
 colors = ['#56CC9D','#FFCE67','#F3969A','#F96C44']
-cores_classe ={'1': ['#56CC9D','#56CC9D','#56CC9D','#56CC9D','#56CC9D','#56CC9D' ],
-               '2': ['#FFCE67','#FFCE67','#FFCE67','#FFCE67','#FFCE67','#FFCE67'],
-               '3': ['#F3969A','#F3969A','#F3969A','#F3969A','#F3969A','#F3969A'],
-               '4': ['#F96C44','#F96C44','#F96C44','#F96C44','#F96C44','#F96C44']}
+cores_classe ={'1': ['#4EB98F','#56CC9D','#80D8B5','#AAE4CD','#BFEAD9','#D1F0E4' ],
+               '2': ['#D19836','#DEA645','#E0AF5A','#E8BE74','#EBC686','#EBCC94'],
+               '3': ['#D27A37','#DE8744','#E1955B','#E7A674','#EAB186','#EBBB94'],
+               '4': ['#C24768','#CF5475','#D36986','#DC7E97','#E18EA4','#E29CAC']}
 markers = ['circle','square','diamond','x','star','triangle-up']
 
 def plotDotMatrix(df,n_linhas,total=100,asc=False):
@@ -284,8 +284,9 @@ grafico_comp = html.Div([dcc.Graph(id='grafico-classe',
 
 #grafico socio é o uqe tem um sociodemográficos selecionado em UMA CLASSE SÓ
 grafico_socio = html.Div([dcc.Graph(id='grafico-socio',
-                                    figure=plotaGrafico_socio("sex",1)),
-                          ])
+                                    figure=plotaGrafico_socio("sex",1)
+                                    )
+                          ],className='col-lg-12')
 
 botoes = buttons = html.Div(
     [

@@ -47,7 +47,7 @@ def plotaGraficoClasse(socio,filtros):
                             y = dados.freq_br,
                             marker_color="#C8C8C8"
     ))
-
+    fig.update_layout(margin=dict(l=15, r=15, t=5, b=25),showlegend=False)
     #aplicar os filtros
     #se não tiver nenhum filtro ativado, só vai mostrar o do brasileiros
     if len(filtros)>0:
@@ -269,9 +269,9 @@ def sliderselect(socio):
 
 def card_mapa(socio):
     card =  dbc.Card(html.Div(
-                    children=[html.H2(socio),
-                                html.Br(),
-                                sliderselect(socio),
+                    children=[html.H3(socio),
+                                #html.Br(),
+                                html.Div(sliderselect(socio),style = {"padding":"0px 20px"}),
                                 html.Div([dcc.Graph(id=f"grafico-classe-{socio}",figure=plotaGraficoClasse('sex',[])),])
                                 ]
                      )
@@ -300,9 +300,9 @@ rows_cards = html.Div(
 )
 
 
-especifico = html.Div([html.H2('Publico'),
-                       html.Br(),
-                       html.H3('Defina seu público aqui'),
+especifico = html.Div([html.H2('Público'),
+                       #html.Br(),
+                       dcc.Markdown("Utilize os gráficos abaixo para filtrar os públicos e verificar a proporção de cada público em comparação com a média brasileira. ", className='text'),
                       rows_cards
                         ])
 

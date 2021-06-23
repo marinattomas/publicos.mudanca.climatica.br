@@ -18,6 +18,10 @@ cores_classe ={'1': ['#4EB98F','#56CC9D','#80D8B5','#AAE4CD','#BFEAD9','#D1F0E4'
                '4': ['#C24768','#CF5475','#D36986','#DC7E97','#E18EA4','#E29CAC']}
 markers = ['circle','square','diamond','x','star','triangle-up']
 
+texto_campanhas = "Nesta página você pode explorar as campanhas mais indicadas para cada um dos públicos identificados, assim como entender como esses públicos se relacionam com as variáveis sociodemográficas"
+
+texto_grafico_socio ="Você também pode dar zoom para ver os pontos com mais detalhes, ou cliclar na legenda para filtrar quais categorias deseja mostrar"
+
 def plotDotMatrix(df,n_linhas,total=100,asc=False):
     #montar o grafico
     fig = go.Figure()
@@ -64,7 +68,12 @@ def plotDotMatrix(df,n_linhas,total=100,asc=False):
     )
     fig.update_xaxes(visible=False)
     fig.update_yaxes(visible=False)
-
+    fig.update_layout(legend=dict(
+    orientation="h",
+    yanchor="bottom",
+    y=1.02,
+    xanchor="right",
+    x=1))
     return fig
 
 def dfBancoSocio(socio):
@@ -129,6 +138,14 @@ def plotDumbbell(dados,socio):
                             ))
      #mudar os ticks nos eixos
      fig.update_xaxes(title_text='Frequência Relativa (%)')
+     fig.update_layout(hovermode="x unified")
+     fig.update_layout(legend=dict(
+    orientation="h",
+    yanchor="bottom",
+    y=1.02,
+    xanchor="right",
+    x=1
+        ))
      return fig
 
 
@@ -248,45 +265,28 @@ def plotaGrafico_comp(socio):
                             mode="markers",
                             name="Nacional"
                             ))
-    return fig
-
-
-
-def plotaGraficoClasse():
-    classes = pd.read_csv("Data/its_classe.csv")
-
-    #são 4 classes, quantas linhas em cada classe
-    frequencia_rel =classes.groupby('class')['class'].count()/len(classes)*100
-    layout = go.Layout(
-        plot_bgcolor="#FFF",  # Sets background color to white
-        xaxis=dict(
-            linecolor="#BCCCDC",  # Sets color of X-axis line
-            showgrid=False  # Removes X-axis grid lines
-        ),
-        yaxis=dict(
-            linecolor="#BCCCDC",  # Sets color of Y-axis line
-            showgrid=False,  # Removes Y-axis grid lines,
-        )
-    )
-    #montar a figura
-    fig=go.Figure(layout=layout)
-    fig.add_trace(go.Bar(
-                            x = nomes_classes,
-                            y = frequencia_rel,
-                            marker_color=colors
+    fig.update_layout(legend=dict(
+    yanchor="top",
+    y=0.99,
+    xanchor="right",
+    x=0.01
     ))
     return fig
+
+
+
+
 
 #grafico clase tem as 4 classes pra selecionar
 grafico_comp = html.Div([dcc.Graph(id='grafico-classe',
                                     figure=plotaGrafico_comp("genero")),
                           ])
 
-#grafico socio é o uqe tem um sociodemográficos selecionado em UMA CLASSE SÓ
+#grafico socio tem um sociodemográficos selecionado em UMA CLASSE SÓ
 grafico_socio = html.Div([dcc.Graph(id='grafico-socio',
-                                    figure=plotaGrafico_socio("sex",1)
-                                    )
-                          ],className='col-lg-12')
+                                    figure=plotaGrafico_socio("sex",1),
+                                    className="img-fluid"                  )
+                          ])
 
 botoes = buttons = html.Div(
     [
@@ -327,8 +327,8 @@ especifico = html.Div(
                                                 children=[
                                                     html.Br(),
                                                     html.Div(html.H2('Veja as campanhas indicadas para cada público:')),
-                                                    html.Br(),
-                                                    html.Br(),
+                                                    dcc.Markdown(texto_campanhas, className='text'),
+                                                    #html.Br(),
                                                     img_campanhas,
                                                     html.Br(),
                                                     html.Div(className='d-flex justify-content-around',
@@ -341,12 +341,15 @@ especifico = html.Div(
                                        ),
                             dbc.Col(dbc.Card(html.Div( children=[
                                                     html.Br(),
-                                                    html.H2('Veja as caracteristicas deste publico'),
-                                                    drop_socio,
-                                                    grafico_socio,
+                                                    html.H2('Veja as características deste publico'),
+                                                    html.Div(drop_socio,style={"padding": 20} ),
+                                                    html.Div(className='col-lg-12',
+                                                             children=grafico_socio),
                                                     html.Div([dcc.Store(id='store-grupo-selecionado-campanhas')]),
-                                   html.H2('ou veja como é dos públicos sociodemográficos:'),
-                                    grafico_comp
+                                   #html.Br(),
+                                   html.H2('Veja como os públicos se relacionam com as variáveis sociodemográficas:'),
+                                   dcc.Markdown(texto_grafico_socio, className='text'),
+                                   grafico_comp
                                    #html.Div(grafico_classe)
                                                         ]
                                                 )

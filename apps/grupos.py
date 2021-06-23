@@ -85,6 +85,7 @@ def plotaGraficoPerguntas(classe):
                         marker_color=color_perg(classe),
     ))
     fig.update_yaxes( range=[0,1])
+    fig.update_layout(hovermode="y unified")
     #fig.update_xaxes( tickmode = array,
     #                  ticktext= dict_perguntas)
     return fig

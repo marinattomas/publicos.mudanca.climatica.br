@@ -47,7 +47,7 @@ def plotaGraficoClasse(socio,filtros):
                             y = dados.freq_br,
                             marker_color="#C8C8C8"
     ))
-    fig.update_layout(margin=dict(l=15, r=15, t=5, b=25),showlegend=False)
+    fig.update_layout(margin=dict(l=20, r=20, t=5, b=25),showlegend=False)
     #aplicar os filtros
     #se não tiver nenhum filtro ativado, só vai mostrar o do brasileiros
     if len(filtros)>0:
@@ -71,7 +71,7 @@ def plotaGraficoClasse(socio,filtros):
                             marker_color=colors
                             ))
         fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide')
-        fig.update_layout(margin=dict(l=15, r=15, t=5, b=25),showlegend=False)
+        fig.update_layout(margin=dict(l=20, r=20, t=5, b=25),showlegend=False)
 
 
     return fig

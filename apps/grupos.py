@@ -13,15 +13,17 @@ import plotly.graph_objects as go
 nomes_classes = ['Antenados','Perdidos','Desligados','Céticos']
 grupo_selecionado = 0
 colors = ['#56CC9D','#FFCE67','#F96C44','#F3969A']
-dict_perguntas  = {"amb_procupa": "Preocupa meio ambiente",
-"amb_prioridade": "Prioridade proteger meio ambiente",
-"clima_importante": "Questão mudanças climática é importante",
-"clima_acontecendo": "Mudanças climáticas estão acontecendo",
-"clima_humano_j" : "Mudanças climáticas são causadas por humanos",
-"clima_cientista_conc": "Cientistas acham que mudanças climáticas estão acontecendo",
-"clima_futuro":"Mudanças climáticas pode prejudicar gerações futuras",
-"clima_voce":"Mudanças climáticas pode prejudicar você e a sua família"
-}
+dict_perguntas  = ["Probabilidade de responder <br> que está muito preocupado</br> com o meio ambiente",
+"Probabilidade de responder <br>que a pioriza proteger</br>o meio ambiente",
+"Probabilidade de responder <br> que o aquecimento global </br> é importante",
+"Probabilidade de responder <br> que as mudanças climáticas</br> estão acontecendo",
+"Probabilidade de responder <br> que as mudanças climáticas</br> são causadas por humanos",
+"Probabilidade de responder <br> que os cientistas acreditam que as </br> mudanças climáticas estão acontecendo",
+"Probabilidade de responder <br>que as mudanças climáticas podem </br> prejudicar as gerações futuras",
+"Probabilidade de responder <br> que as mudanças climáticas podem</br> prejudicar você e a sua família"
+]
+
+perguntas_resumo = [ 'Preocupação ambiental', 'Priorização ambiental','Importancia Climática','Crença climática','Crença causas humanas','Crença consenso','Preocupação com futuro','Preocupação pessoal']
 def plotaGraficoClasse():
     classes = pd.read_csv("Data/prop_sex.csv")
     classes =classes[classes["sex"] == 'Feminino']
@@ -44,9 +46,15 @@ def plotaGraficoClasse():
                             x = nomes_classes,
                             y = classes.freq_br,
                             marker_color= colors,
+                            hovertemplate ='<i>%{x}</i>: '
+                                           +'<br>%{y:.2f}%<extra></extra></br>',
+                            hoverlabel=dict(
+                            font_size=14)
     ))
     fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide')
     fig.update_layout(clickmode='event+select')
+    fig.update_xaxes(fixedrange=True)
+    fig.update_yaxes(fixedrange=True)
     return fig
 
 
@@ -83,11 +91,15 @@ def plotaGraficoPerguntas(classe):
                         x = perguntas['l1'],
                         y = perguntas['value'],
                         marker_color=color_perg(classe),
+                        hovertemplate ='<b>%{text}</b>:%{y:.2f}<extra></extra>',
+                        text = dict_perguntas
     ))
     fig.update_yaxes( range=[0,1])
-    #fig.update_layout(hovermode="y unified")
-    #fig.update_xaxes( tickmode = array,
-    #                  ticktext= dict_perguntas)
+    fig.update_layout(
+        xaxis = dict(
+        tickmode = 'array',tickvals = perguntas['l1'],ticktext= perguntas_resumo))
+    fig.update_xaxes(fixedrange=True)
+    fig.update_yaxes(fixedrange=True)
     return fig
 
 drop_class = dcc.Dropdown(
@@ -120,7 +132,13 @@ grafico_classe = html.Div([dcc.Graph(id='grafico-classe',
 img_explicativa = html.Div(className='col-lg-12',
                          children=html.Img(id='img-grupos',className="img-fluid"))
 
-grafico_perguntas = html.Div([dcc.Graph(id='grafico-perguntas')],
+def figura_inicial():
+    fig = go.Figure()
+    fig.add_layout_image(x=0, y=0, xref="x", yref="y", opacity=1.0, layer="above", source="/assets/selecionar_grupos.png")
+    return fig
+
+
+grafico_perguntas = html.Div([dcc.Graph(id='grafico-perguntas', figure = figura_inicial())],
                           className='col-lg-12')
 
 img_pergunta = html.Div(className='col-lg-12',
@@ -147,7 +165,7 @@ especifico = html.Div( html.Div(dbc.Card(html.Div(children=[
                                                                      children=[grafico_perguntas,
                                                                        img_pergunta,
                                                                        dcc.Store(id='store-grupo-selecionado')]),
-                                                            dcc.Markdown("Para mais informações sobre as perguntas e opções de respostas acesse a página [Informações gerais](http://percepcao-brasil-mudclima.herokuapp.com/apps/sobre)", className='text'),
+                                                            dcc.Markdown("Para mais informações sobre as perguntas e opções de respostas acesse a página [Informações gerais](/apps/sobre)", className='text'),
 
                                       ] ))))
 
@@ -221,12 +239,14 @@ def update_img_explicativa(clickdata,btn1,btn2,btn3,btn4):
         yaxis=dict(
             title="probabilidade de resposta",
             linecolor="#BCCCDC",  # Sets color of Y-axis line
-            showgrid=False,  # Removes Y-axis grid lines
+            showgrid=False,  # Removes Y-axis grid lines,
             )
         )
         fig = go.Figure(layout=layout)
         fig.update_yaxes( range=[0,1])
+        #fig = figura_inicial()
         text = ""
+
     return caminho, fig, grupo_selecionado,text
 
 @app.callback(

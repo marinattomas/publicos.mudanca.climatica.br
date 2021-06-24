@@ -52,7 +52,9 @@ def defineLayout(especifico,ativo,texto_padrao=texto_p,tipo_pag='padrão'):
     )
 
     rodape = dbc.NavbarSimple(
-        children=[html.Div(dcc.Markdown('Desenvolvido e ilustrado por [Marina Tomás](https://linktr.ee/sciartmari)'))],
+        children=[dcc.Link('Desenvolvido e ilustrado por Marina Tomás',
+                           href='https://linktr.ee/sciartmari',
+                           style={'color':'#FFFAFA'} )],
         brand_href="#",
         color="primary",
         dark=True,

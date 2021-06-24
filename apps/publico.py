@@ -25,7 +25,6 @@ dict_nomes = {'sex':'Data/prop_sex.csv',
 
 ## define função para gerar os gráficos
 def plotaGraficoClasse(socio,filtros):
-    print(socio,filtros)
     dados = pd.read_csv(dict_nomes[socio])
 
     layout = go.Layout(
@@ -45,9 +44,13 @@ def plotaGraficoClasse(socio,filtros):
     fig.add_trace(go.Bar(
                             x = nomes_classes,
                             y = dados.freq_br,
-                            marker_color="#C8C8C8"
+                            marker_color="#C8C8C8",
+                             hovertemplate ='<i>%{x} Nacional</i>: '
+                                           +'<br>%{y:.2f}%<extra></extra></br>',
     ))
-    fig.update_layout(margin=dict(l=20, r=20, t=5, b=25),showlegend=False)
+    fig.update_layout(margin=dict(l=20, r=20, t=5, b=5),showlegend=False)
+    fig.update_xaxes(fixedrange=True)
+    fig.update_yaxes(fixedrange=True)
     #aplicar os filtros
     #se não tiver nenhum filtro ativado, só vai mostrar o do brasileiros
     if len(filtros)>0:
@@ -68,30 +71,35 @@ def plotaGraficoClasse(socio,filtros):
         fig.add_trace(go.Bar(
                             x = nomes_classes,
                             y =df_plot.freq_plot,
-                            marker_color=colors
+                            marker_color=colors,
+                            hovertemplate ='<i>%{x}</i>: '
+                                           +'<br>%{y:.2f}%<extra></extra></br>',
                             ))
         fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide')
-        fig.update_layout(margin=dict(l=20, r=20, t=5, b=25),showlegend=False)
-
+        fig.update_layout(margin=dict(l=20, r=20, t=5, b=50),showlegend=False)
 
     return fig
 
 
 ## sessão de checklists dos sociodemográficos
-checklist_genero = dbc.FormGroup(
-    [
-        dbc.Label("Escolha um:"),
-        dbc.Checklist(
-            options=[
-                    {'label': 'Mulheres', 'value': 'Feminino'},
-                    {'label': 'Homens', 'value': 'Masculino'},
-            ],
-            value=[ ],
-            id="switches-genero",
-            inline=True,
-            switch=True
-        ),
-    ]
+checklist_genero = html.Div(children=
+        [dbc.FormGroup(
+                        [
+                            dbc.Label("Escolha um:"),
+                            dbc.Checklist(
+                                options=[
+                                        {'label': 'Mulheres', 'value': 'Feminino'},
+                                        {'label': 'Homens', 'value': 'Masculino'},
+                                ],
+                                value=[ ],
+                                id="switches-genero",
+                                inline=True,
+                                switch=True
+                            ),
+                        ],
+                        ),
+        html.Br(),
+        html.Br()]
 )
 
 checklist_idade = dbc.FormGroup(
@@ -113,25 +121,28 @@ checklist_idade = dbc.FormGroup(
     ]
 )
 
-checklist_escolaridade = dbc.FormGroup(
-    [
-        dbc.Label("Escolha um:"),
-        dbc.Checklist(
-            options=[
-                    {'label': 'Até primário', 'value': 'Até primário'},
-                    {'label': 'Ginásio', 'value': 'Ginásio'},
-                    {'label': 'Colegial', 'value': 'Colegial'},
-                    {'label': 'Superior', 'value':'Superior'},
-            ],
-            value=[],
-            id="switches-escolaridade",
-            inline=True,
-            switch=True
-        ),
-    ]
+checklist_escolaridade = html.Div(children=
+        [dbc.FormGroup(
+                    [
+                        dbc.Label("Escolha um:"),
+                        dbc.Checklist(
+                            options=[
+                                    {'label': 'Até primário', 'value': 'Até primário'},
+                                    {'label': 'Ginásio', 'value': 'Ginásio'},
+                                    {'label': 'Colegial', 'value': 'Colegial'},
+                                    {'label': 'Superior', 'value':'Superior'},
+                            ],
+                            value=[],
+                            id="switches-escolaridade",
+                            inline=True,
+                            switch=True
+                        ),
+                    ]),
+                html.Br()]
 )
 
-checklist_regiao = dbc.FormGroup(
+checklist_regiao = html.Div(children=
+        [dbc.FormGroup(
     [
         dbc.Label("Escolha um:"),
         dbc.Checklist(
@@ -148,28 +159,33 @@ checklist_regiao = dbc.FormGroup(
             switch=True
         ),
     ]
-)
+),
+  html.Br(),
+]
+    )
 
-checklist_classe = dbc.FormGroup(
-    [
-        dbc.Label("Escolha um:"),
-        dbc.Checklist(
-            options=[
-                    {'label': 'A', 'value':  'A'},
-                    {'label': 'B1', 'value': 'B1'},
-                    {'label': 'B2', 'value':'B2'},
-                    {'label': 'C1', 'value': 'C1'},
-                    {'label': 'C2', 'value': 'C2'},
-                    {'label': 'DE', 'value': 'DE'},
-            ],
-            value=[ ],
-            id="switches-classe",
-            inline=True,
-            switch=True
-        ),
-    ]
-)
-
+checklist_classe =  html.Div(children=
+        [dbc.FormGroup(
+            [
+                dbc.Label("Escolha um:"),
+                dbc.Checklist(
+                    options=[
+                            {'label': 'A', 'value':  'A'},
+                            {'label': 'B1', 'value': 'B1'},
+                            {'label': 'B2', 'value':'B2'},
+                            {'label': 'C1', 'value': 'C1'},
+                            {'label': 'C2', 'value': 'C2'},
+                            {'label': 'DE', 'value': 'DE'},
+                    ],
+                    value=[ ],
+                    id="switches-classe",
+                    inline=True,
+                    switch=True
+                ),
+            ]),
+    html.Br(),
+    html.Br()]
+    )
 
 checklist_religiao = dbc.FormGroup(
     [
@@ -179,7 +195,7 @@ checklist_religiao = dbc.FormGroup(
                     {'label': 'Católica', 'value': 'Católica'},
                     {'label': 'Protestante', 'value': 'Protestante'},
                     {'label': 'Outras Religiões', 'value': 'Outras Religiões'},
-                    {'label': 'Ateu/Agnóstico/Não segue religião', 'value': 'Ateu'}
+                    {'label': 'Ateu/Agnóstico/Não segue religião', 'value': 'Ateu/Agnóstico/Não segue religião'}
             ],
             value=[],
             id="switches-religiao",
@@ -189,14 +205,16 @@ checklist_religiao = dbc.FormGroup(
     ]
 )
 
-checklist_Posicao_politica = dbc.FormGroup(
+
+checklist_Posicao_politica = html.Div(children=
+        [dbc.FormGroup(
     [
         dbc.Label("Escolha um:"),
         dbc.Checklist(
             options=[
-                    {'label': 'Mais à esquerda', 'value':"esquerda"},
-                    {'label': 'No centro', 'value': "centro"},
-                    {'label': 'Mais à direita', 'value': "direita"},
+                    {'label': 'Mais à esquerda', 'value':"Mais à esquerda"},
+                    {'label': 'No centro', 'value': "Centro"},
+                    {'label': 'Mais à direita', 'value': "Mais à direita"},
             ],
             value=[],
             id="switches-Posicao_politica",
@@ -204,9 +222,14 @@ checklist_Posicao_politica = dbc.FormGroup(
             switch=True
         ),
     ]
-)
+),
+    html.Br(),
+            html.Br(),
+        ]
+    )
 
-checklist_raca = dbc.FormGroup(
+checklist_raca =  html.Div(children=
+        [dbc.FormGroup(
     [
         dbc.Label("Escolha um:"),
         dbc.Checklist(
@@ -223,16 +246,20 @@ checklist_raca = dbc.FormGroup(
             switch=True
         ),
     ]
-)
+),
+    html.Br()
+    ]
+    )
+
 
 checklist_internet = dbc.FormGroup(
     [
         dbc.Label("Escolha um:"),
         dbc.Checklist(
             options=[
-                    {'label': 'Não acessam a Internet', 'value': 'sem_internet'},
-                    {'label': 'Acessa por Wi-fi', 'value': 'internet_wifi'},
-                    {'label': 'Acesso apenas por Rede do celular,', 'value': 'internet_3g'},
+                    {'label': 'Não acessam a Internet', 'value': "Sem internet"},
+                    {'label': 'Acessa por Wi-fi', 'value': "Internet Wi-fi"},
+                    {'label': 'Acesso apenas por Rede do celular (3G/4G)', 'value': "Internet Rede do celular(3G,4G)"},
             ],
             value=[ ],
             id="switches-internet",
@@ -272,7 +299,7 @@ def card_mapa(socio):
                     children=[html.H3(socio),
                                 #html.Br(),
                                 html.Div(sliderselect(socio),style = {"padding":"0px 20px"}),
-                                html.Div([dcc.Graph(id=f"grafico-classe-{socio}",figure=plotaGraficoClasse('sex',[])),])
+                                html.Div([dcc.Graph(id=f"grafico-classe-{socio}",figure=plotaGraficoClasse('sex',[])),], style ={'padding':'10px'})
                                 ]
                      )
            )
@@ -283,15 +310,15 @@ rows_cards = html.Div(
     [
         dbc.Row(
             [
-                dbc.Col(card_mapa("Gênero"), className='col-lg-4'),
-                dbc.Col(card_mapa("Idade"), className='col-lg-4'),
-                dbc.Col(card_mapa("Escolaridade"), className='col-lg-4'),
-                dbc.Col(html.Div(  card_mapa("Região")),  className='col-lg-4'),
-                dbc.Col(html.Div(card_mapa("Classe social")),  className='col-lg-4'),
-                dbc.Col(html.Div(card_mapa("Religião")),  className='col-lg-4'),
-                dbc.Col(html.Div(card_mapa("Posição Política")),  className='col-lg-4'),
-                dbc.Col(html.Div(card_mapa("Raça")),  className='col-lg-4'),
-                dbc.Col(html.Div(card_mapa("Acesso à internet")), className='col-lg-4')
+                dbc.Col(card_mapa("Gênero"), className='col-lg-4', style={'padding': '10px'}),
+                dbc.Col(card_mapa("Idade"), className='col-lg-4', style={'padding': '10px'}),
+                dbc.Col(card_mapa("Escolaridade"), className='col-lg-4', style={'padding': '10px'}),
+                dbc.Col(html.Div(  card_mapa("Região")),  className='col-lg-4', style={'padding': '10px'}),
+                dbc.Col(html.Div(card_mapa("Classe social")),  className='col-lg-4', style={'padding': '10px'}),
+                dbc.Col(html.Div(card_mapa("Religião")),  className='col-lg-4', style={'padding': '10px'}),
+                dbc.Col(html.Div(card_mapa("Posição Política")),  className='col-lg-4', style={'padding': '10px'}),
+                dbc.Col(html.Div(card_mapa("Raça")),  className='col-lg-4', style={'padding': '10px'}),
+                dbc.Col(html.Div(card_mapa("Acesso à internet")), className='col-lg-4', style={'padding': '10px'})
             ],
             align="start",
         ),

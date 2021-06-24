@@ -16,11 +16,18 @@ cores_classe ={'1': ['#4EB98F','#56CC9D','#80D8B5','#AAE4CD','#BFEAD9','#D1F0E4'
                '2': ['#D19836','#DEA645','#E0AF5A','#E8BE74','#EBC686','#EBCC94'],
                '3': ['#D27A37','#DE8744','#E1955B','#E7A674','#EAB186','#EBBB94'],
                '4': ['#C24768','#CF5475','#D36986','#DC7E97','#E18EA4','#E29CAC']}
-markers = ['circle','square','diamond','x','star','triangle-up']
+markers = ['circle','square','diamond','pentagon','hexagon','octagon']
 
 texto_campanhas = "Nesta página você pode explorar as campanhas mais indicadas para cada um dos públicos identificados, assim como entender como esses públicos se relacionam com as variáveis sociodemográficas"
 
 texto_grafico_socio ="Você também pode dar zoom para ver os pontos com mais detalhes, ou cliclar na legenda para filtrar quais categorias deseja mostrar"
+
+texto_grafico_matrix ="Selecione um dos grupos e uma das variáveis para ver as características deste grupo nessa variável"
+def figura_inicial():
+    fig = go.Figure()
+    fig.add_layout_image(x=0, y=0, xref="x", yref="y", opacity=1.0, layer="above", source="/assets/selecionar_grupos_campanha.png")
+    return fig
+
 
 def plotDotMatrix(df,n_linhas,total=100,asc=False):
     #montar o grafico
@@ -37,7 +44,7 @@ def plotDotMatrix(df,n_linhas,total=100,asc=False):
     #lidar com as porcentagens quebradinhas (aqui só rola um round-lidar com isso seriamente fora pra não >total)
     df.freq_rel = np.round(df.freq_rel.values*total/100)
     #organizar qual ponto vai ser de qual cor e marcador
-    df = df.sort_values(by='freq_rel',ascending=asc).reset_index()
+    df = df.sort_values(by='label',ascending=asc).reset_index()
     df['cumsum'] = df.freq_rel.cumsum()
     print(df)
     for index, row in df.iterrows():
@@ -57,23 +64,26 @@ def plotDotMatrix(df,n_linhas,total=100,asc=False):
                                 name= df[df.cor==x.cor.unique()[0]]['label'].values[0],
                                 marker_color=x.cor.unique()[0],
                                 marker_symbol=x.marker.unique()[0],
-                                marker_size=18))#tamanho do marcador
+                                marker_size=20, #tamanho do marcador,
+                                hovertemplate ='Categoria:'))
 
     fig.update_layout(
-        margin=dict(l=10, r=5, t=0, b=0),
+        margin=dict(l=2, r=2, t=0, b=0),
         paper_bgcolor="white",
-        width=950,
+        #width=950,
         height=250,#/len(pontos.y.unique()+10),
         plot_bgcolor="white"
     )
     fig.update_xaxes(visible=False)
     fig.update_yaxes(visible=False)
+    fig.update_xaxes(fixedrange=True)
+    fig.update_yaxes(fixedrange=True)
     fig.update_layout(legend=dict(
     orientation="h",
     yanchor="bottom",
     y=1.02,
     xanchor="right",
-    x=1))
+    x=0.9))
     return fig
 
 def dfBancoSocio(socio):
@@ -95,11 +105,12 @@ def dfBancoSocio(socio):
 
 
 def pegaFiguraDotMatrix(dados,socio,classe):
-      #dados = dfBancoSocio(socio)
+      dados = dfBancoSocio(socio)
       dados = dados[dados['class']==classe]
       dados = dados.rename(columns= {socio:'label','freq_class':'freq_rel'})
+      dados = dados.sort_values('label')
       dados = dados.astype({'freq_rel':'float'})
-      fig = plotDotMatrix(dados,10,total=100,asc=False)
+      fig = plotDotMatrix(dados,5,total=100,asc=True)
       return fig
 
 def plotDumbbell(dados,socio):
@@ -123,7 +134,7 @@ def plotDumbbell(dados,socio):
          filtrados = dados[dados[socio]==seg]
          fig.add_trace(go.Scatter(
                                  y= nomes_classes,
-                                 x= filtrados.freq_socio,
+                                 x= np.round(filtrados.freq_socio,2),
                                  marker=dict(color=colors, size=15,symbol=filtrados.marker.unique()[0],opacity=0.7),
                                  mode="markers",
                                  name=filtrados[socio].unique()[0]
@@ -131,7 +142,7 @@ def plotDumbbell(dados,socio):
 
      fig.add_trace(go.Scatter(
                             y = nomes_classes,
-                            x = dados.freq_br,
+                            x = np.round(dados.freq_br,2),
                             marker=dict(color="grey", size=15,opacity=0.5),
                             mode="markers",
                             name="Nacional"
@@ -285,7 +296,7 @@ grafico_comp = html.Div([dcc.Graph(id='grafico-classe',
 #grafico socio tem um sociodemográficos selecionado em UMA CLASSE SÓ
 grafico_socio = html.Div([dcc.Graph(id='grafico-socio',
                                     figure=plotaGrafico_socio("sex",1),
-                                    className="img-fluid"                  )
+                                                    )
                           ])
 
 botoes = buttons = html.Div(
@@ -333,27 +344,28 @@ especifico = html.Div(
                                                     html.Br(),
                                                     html.Div(className='d-flex justify-content-around',
                                                                       children=[botoes]),
-                                                    dcc.Markdown("Para mais informações sobre as referências usadas para criar as campanhas acesse a página [Informações gerais](http://percepcao-brasil-mudclima.herokuapp.com/apps/sobre)", className='text'),
+                                                    dcc.Markdown("Para mais informações sobre as referências usadas para criar as campanhas acesse a página [Referências](/apps/referencias)", className='text'),
 
                                                         ]
                                                 )
-                                              )
+                                              ),className='col-lg-12'
                                        ),
                             dbc.Col(dbc.Card(html.Div( children=[
                                                     html.Br(),
-                                                    html.H2('Veja as características deste publico'),
-                                                    html.Div(drop_socio,style={"padding": 20} ),
+                                                    html.H2('Veja as características deste público'),
+                                                    dcc.Markdown(texto_grafico_matrix, style={"margin":30}),
+                                                    html.Div(drop_socio,style={"margin":20} ),
                                                     html.Div(className='col-lg-12',
                                                              children=grafico_socio),
                                                     html.Div([dcc.Store(id='store-grupo-selecionado-campanhas')]),
-                                   #html.Br(),
+                                   html.Br(),
                                    html.H2('Veja como os públicos se relacionam com as variáveis sociodemográficas:'),
-                                   dcc.Markdown(texto_grafico_socio, className='text'),
+                                   dcc.Markdown(texto_grafico_socio, style={"margin":30} ),
                                    grafico_comp
                                    #html.Div(grafico_classe)
                                                         ]
                                                 )
-                                       )
+                                       ),className='col-lg-12'
                                       )
                                 ]
                           )

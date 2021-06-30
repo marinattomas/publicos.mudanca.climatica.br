@@ -147,7 +147,7 @@ img_pergunta = html.Div(className='col-lg-12',
 especifico = html.Div( html.Div(dbc.Card(html.Div(children=[
                                                             html.Br(),
                                                             html.Div(html.H2('Entendendo seus grupos')),
-                                                            dcc.Markdown("O gráfico abaixa mostra as porcentagens de cada uma das audiências indentificadas na população brasileira, clique nas barras ou nos botões abaixo para entender mais sobre cada uma delas.", className='text'),
+                                                            dcc.Markdown("O gráfico abaixo mostra as porcentagens de cada uma das audiências identificadas na população brasileira, clique nas barras ou nos botões abaixo para entender mais sobre cada uma delas.", className='text'),
                                                             #html.Br(),
                                                             html.Div(className='row',
                                                                      children=[grafico_classe
@@ -203,8 +203,8 @@ def update_img_explicativa(clickdata,btn1,btn2,btn3,btn4):
         caminho = '/assets/publico_2.png'
         fig = plotaGraficoPerguntas(2)
         text = "Os Perdidos, assim como os Antenados, acreditam que as mudanças climáticas são reais e importantes, " \
-               "ainda que com uma probabilidade um pouco menor. O grupo também concorda que as mudanças climáticas afetarão" \
-               "eles mesmos ou sua família, e também as gerações futuras.  Nas demais perguntas, porém, este grupo não tem" \
+               "ainda que com uma probabilidade um pouco menor. O grupo também concorda que as mudanças climáticas afetarão " \
+               "eles mesmos ou sua família, e também as gerações futuras.  Nas demais perguntas, porém, este grupo não tem " \
                "tanta certeza. A maioria ainda acredita que as mudanças climáticas têm causa humana, mas nem todos os membros " \
                "afirmam estar preocupados com o meio ambiente, que acham mais importante proteger o meio ambiente mesmo que " \
                "isso signifique um menor crescimento econômico e que os cientistas concordam que as mudanças climáticas estão acontecendo."
@@ -214,7 +214,7 @@ def update_img_explicativa(clickdata,btn1,btn2,btn3,btn4):
         fig = plotaGraficoPerguntas(3)
         text= "Os desligados acreditam que as mudanças climáticas são reais e importantes, e tem uma alta probabilidade de " \
                "responder que a causa delas é a ação humana e que os cientistas concordam que elas estão acontecendo, ainda que" \
-               " com uma probabilidade menor que os Antenados. Este grupo porém está dividido sobre proteger o meio ambiente ou" \
+               " com uma probabilidade menor que os Antenados. Este grupo, porém está dividido sobre proteger o meio ambiente ou" \
                " promover o crescimento econômico, tem baixa probabilidade de responder que se preocupa com o meio ambiente e nenhum" \
                " dos membros acredita que as mudanças climáticas irão impactar sua família ou eles pessoalmente. Já se tratando do futuro" \
                " os membros estão divididos, com uma ligeira maioria acreditando que as mudanças climáticas vão afetar as próximas gerações."

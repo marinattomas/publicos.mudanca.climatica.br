@@ -257,9 +257,9 @@ checklist_internet = dbc.FormGroup(
         dbc.Label("Escolha um:"),
         dbc.Checklist(
             options=[
-                    {'label': 'Não acessam a Internet', 'value': "Sem internet"},
+                    {'label': 'Não acessa Internet', 'value': "Sem internet"},
                     {'label': 'Acessa por Wi-fi', 'value': "Internet Wi-fi"},
-                    {'label': 'Acesso apenas por Rede do celular (3G/4G)', 'value': "Internet Rede do celular(3G,4G)"},
+                    {'label': 'Acessa apenas por Rede do celular (3G/4G)', 'value': "Internet Rede do celular(3G,4G)"},
             ],
             value=[ ],
             id="switches-internet",

@@ -9,7 +9,7 @@ import plotly.graph_objs as go
 import dash
 
 
-nomes_classes = ['Antenados','Perdidos','Desligados','Céticos']
+nomes_classes = ['Antenados','Perdidos','Desligados','Incertos']
 colors = ['#56CC9D','#FFCE67','#F96C44','#F3969A']
 dict_nomes = {'sex':'Data/prop_sex.csv',
               'idade_c':'Data/prop_idade_c.csv',

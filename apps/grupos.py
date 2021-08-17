@@ -10,7 +10,7 @@ import dash
 import plotly.graph_objects as go
 
 
-nomes_classes = ['Antenados','Perdidos','Desligados','Céticos']
+nomes_classes = ['Antenados','Perdidos','Desligados','Incertos']
 grupo_selecionado = 0
 colors = ['#56CC9D','#FFCE67','#F96C44','#F3969A']
 dict_perguntas  = ["Probabilidade de responder <br> que está muito preocupado</br> com o meio ambiente",
@@ -109,7 +109,7 @@ drop_class = dcc.Dropdown(
         options=[{'label': 'Antenados', 'value': '1'},
                 {'label': 'Perdidos', 'value': '2'},
                 {'label': 'Desligados', 'value': '3'},
-                {'label': 'Céticos', 'value': '4'}],
+                {'label': 'Incertos', 'value': '4'}],
         value='1',
         style= {'margin': '4px', 'box-shadow': '0px 0px #ebb36a', 'border-color': '#ebb36a'}
     )
@@ -120,7 +120,7 @@ botoes = buttons = html.Div(
         dbc.Button("Antenados", id='btn-Antenados',color="success" , className="mr-1"),
         dbc.Button("Perdidos", id='btn-Perdidos',color="warning", className="mr-1"),
         dbc.Button("Desligados", id='btn-Desligados',color="danger" , className="mr-1"),
-        dbc.Button("Céticos", id='btn-Ceticos',color="secondary" , className="mr-1"),
+        dbc.Button("Incertos", id='btn-Ceticos',color="secondary" , className="mr-1"),
     ]
 )
 
@@ -218,11 +218,11 @@ def update_img_explicativa(clickdata,btn1,btn2,btn3,btn4):
                " promover o crescimento econômico, tem baixa probabilidade de responder que se preocupa com o meio ambiente e nenhum" \
                " dos membros acredita que as mudanças climáticas irão impactar sua família ou eles pessoalmente. Já se tratando do futuro" \
                " os membros estão divididos, com uma ligeira maioria acreditando que as mudanças climáticas vão afetar as próximas gerações."
-    elif ('btn-Ceticos' in changed_id) or (click=='Céticos'):
+    elif ('btn-Ceticos' in changed_id) or (click=='Incertos'):
         grupo_selecionado = 4
         caminho = '/assets/publico_4.png'
         fig = plotaGraficoPerguntas(4)
-        text='Os Céticos não acreditam que as mudanças climáticas são reais, tem causa humana, que os cientistas ' \
+        text='Os Incertos não acreditam que as mudanças climáticas são reais, tem causa humana, que os cientistas ' \
                'concordam ou que estas vão afetar sua família, eles mesmos ou as próximas gerações. Este grupo considera ' \
                'mais importante promover o crescimento econômico e a geração de empregos, mesmo que isso prejudique o meio' \
                ' ambiente, e tem baixa probabilidade de se declarar preocupado com o meio ambiente. Apenas na pergunta se o ' \

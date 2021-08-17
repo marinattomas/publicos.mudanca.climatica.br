@@ -9,7 +9,7 @@ import plotly.graph_objs as go
 import dash
 import numpy as np
 
-nomes_classes = ['Antenados','Perdidos','Desligados','Céticos']
+nomes_classes = ['Antenados','Perdidos','Desligados','Incertos']
 faixas_idade = ['18 a 24 anos','25 a 34 anos','35 a 44 anos','45 a 54 anos','55 anos ou mais']
 colors = ['#56CC9D','#FFCE67','#F3969A','#F96C44']
 cores_classe ={'1': ['#4EB98F','#56CC9D','#80D8B5','#AAE4CD','#BFEAD9','#D1F0E4' ],
@@ -304,7 +304,7 @@ botoes = buttons = html.Div(
         dbc.Button("Antenados", id='btn-Antenados',color="success" , className="mr-1"),
         dbc.Button("Perdidos", id='btn-Perdidos',color="warning", className="mr-1"),
         dbc.Button("Desligados", id='btn-Desligados',color="danger" , className="mr-1"),
-        dbc.Button("Céticos", id='btn-Ceticos',color="secondary" , className="mr-1"),
+        dbc.Button("Incertos", id='btn-Ceticos',color="secondary" , className="mr-1"),
     ]
 )
 

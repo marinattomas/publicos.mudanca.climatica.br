@@ -11,7 +11,7 @@ import numpy as np
 
 nomes_classes = ['Antenados','Perdidos','Desligados','Incrédulos']
 faixas_idade = ['18 a 24 anos','25 a 34 anos','35 a 44 anos','45 a 54 anos','55 anos ou mais']
-colors = ['#56CC9D','#FFCE67','#F3969A','#F96C44']
+colors = ['#56CC9D','#FFCE67','#F96C44','#F3969A']
 cores_classe ={'1': ['#4EB98F','#56CC9D','#80D8B5','#AAE4CD','#BFEAD9','#D1F0E4' ],
                '2': ['#D19836','#DEA645','#E0AF5A','#E8BE74','#EBC686','#EBCC94'],
                '3': ['#D27A37','#DE8744','#E1955B','#E7A674','#EAB186','#EBBB94'],

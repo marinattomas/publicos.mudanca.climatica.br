@@ -1,4 +1,4 @@
-
+# Dashboard -  Os grupos brasileiros de percepção das mudanças climáticas
 
 
 ![Imagem](/assets/home5.png)
@@ -7,7 +7,7 @@
 
 * * *
 
-### Dashboard -  Os grupos brasileiros de percepção das mudanças climáticas
+### Sobre o Dasboard
 
 Esse dashboard utiliza os dados da pesquisa MUDANÇAS CLIMÁTICAS NA PERCEPÇÃO DOS BRASILEIROS para identificar quais são os grupos de percepção sobre as mudanças climáticas presentes no Brasil através da análise de classes latentes.
 

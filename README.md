@@ -7,6 +7,10 @@
 
 * * *
 
+###   Como usar esse Dashboard
+
+<video src="/assets/Video%20explicativo%20-%20Dashboard%20percepção%20dos%20brasileiros%20-%20Marina%20Tomas.mkv" controls="controls" style="max-width: 730px;"></video>
+
 ### Sobre o Dasboard
 
 Esse dashboard utiliza os dados da pesquisa MUDANÇAS CLIMÁTICAS NA PERCEPÇÃO DOS BRASILEIROS para identificar quais são os grupos de percepção sobre as mudanças climáticas presentes no Brasil através da análise de classes latentes.

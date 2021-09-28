@@ -6,4 +6,4 @@ A pesquisa original é uma parceria do ITS, com o programa de comunicação das 
 
 O dashbard pode ser visualizado no link: http://percepcao-brasil-mudclima.herokuapp.com/
 
-[Ilustração de diversas pessoas representando publicos diversos sobre as mudanças climáticas](/assets/home 3.png)
+<img src="home%203.png.png" alt="hi" class="inline"/>

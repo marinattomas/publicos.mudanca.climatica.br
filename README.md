@@ -1,5 +1,6 @@
 # Dashboard -  Os grupos brasileiros de percepção das mudanças climáticas
 
+Conheça o projeto "Os grupos brasileiros de percepção das mudanças climáticas" produzido no programa de bolsas do ITS para analise e comunicação dos dados da Pesquisa MUDANÇAS CLIMÁTICAS NA PERCEPÇÃO DOS BRASILEIROS. Você pode acessar o dashboard clicando no link abaixo ou ver como utilizar a ferramenta assistindo o video desta página.
 
 ![Imagem](/assets/home5.png)
 
@@ -20,3 +21,5 @@
 Esse dashboard utiliza os dados da pesquisa MUDANÇAS CLIMÁTICAS NA PERCEPÇÃO DOS BRASILEIROS para identificar quais são os grupos de percepção sobre as mudanças climáticas presentes no Brasil através da análise de classes latentes.
 
 A pesquisa original é uma parceria do ITS, com o programa de comunicação das mudanças climáticas da Universidade de Yale (Yale Program on Climate Change Communication), e o dashboard é um produto do programa de bolsas desta mesma pesquisa. As entrevistas foram realizadas entre os dias 24 de setembro a 16 de outubro de 2020 pelo IBOPE Inteligência e mais informações estão disponíveis no endereço [https://www.percepcaoclimatica.com.br/](https://www.percepcaoclimatica.com.br/).
+
+Qualquer dúvida a autora esta a disposição no e-mail marinattomas@ufmg.br

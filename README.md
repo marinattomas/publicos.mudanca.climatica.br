@@ -1,6 +1,6 @@
 # Dashboard -  Os grupos brasileiros de percepção das mudanças climáticas
 
-Conheça o projeto "Os grupos brasileiros de percepção das mudanças climáticas" produzido no programa de bolsas do ITS para analise e comunicação dos dados da Pesquisa MUDANÇAS CLIMÁTICAS NA PERCEPÇÃO DOS BRASILEIROS. Você pode acessar o dashboard clicando no link abaixo ou ver como utilizar a ferramenta assistindo o video desta página.
+Conheça o projeto "Os grupos brasileiros de percepção das mudanças climáticas" produzido no programa de bolsas do ITS para analise e comunicação dos dados da Pesquisa **Mudanças Climáticas na percepção dos brasileiros**. Você pode acessar o dashboard clicando no link abaixo ou ver como utilizar a ferramenta assistindo o video desta página.
 
 ![Imagem](/assets/home5.png)
 
@@ -8,7 +8,7 @@ Conheça o projeto "Os grupos brasileiros de percepção das mudanças climátic
 
 * * *
 
-###   Como usar esse Dashboard
+##  Como usar esse Dashboard
 
 
 
@@ -16,7 +16,7 @@ Conheça o projeto "Os grupos brasileiros de percepção das mudanças climátic
 
 
 
-### Sobre o Dasboard
+## Sobre o Dasboard
 
 Esse dashboard utiliza os dados da pesquisa MUDANÇAS CLIMÁTICAS NA PERCEPÇÃO DOS BRASILEIROS para identificar quais são os grupos de percepção sobre as mudanças climáticas presentes no Brasil através da análise de classes latentes.
 

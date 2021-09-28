@@ -8,6 +8,6 @@ A pesquisa original é uma parceria do ITS, com o programa de comunicação das 
 
 ## O dashbard pode ser visualizado no link: 
 
-[http://percepcao-brasil-mudclima.herokuapp.com/]([http://percepcao-brasil-mudclima.herokuapp.com/)
+[http://percepcao-brasil-mudclima.herokuapp.com/](http://percepcao-brasil-mudclima.herokuapp.com/)
 
-![Imagem](/assets/home%201.png)
+![Imagem](/assets/home5.png)

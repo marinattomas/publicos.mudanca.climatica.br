@@ -9,7 +9,11 @@
 
 ###   Como usar esse Dashboard
 
-<video src="/assets/Video%20explicativo%20-%20Dashboard%20percepção%20dos%20brasileiros%20-%20Marina%20Tomas.mkv" controls="controls" style="max-width: 730px;"></video>
+
+
+https://user-images.githubusercontent.com/19768592/135179150-e066f65a-4fb0-4d57-a9b0-09f1e0173d7b.mp4
+
+
 
 ### Sobre o Dasboard
 

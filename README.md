@@ -1,6 +1,10 @@
 # Dashboard -  Os grupos brasileiros de percepção das mudanças climáticas
 
-Conheça o projeto "Os grupos brasileiros de percepção das mudanças climáticas" produzido no programa de bolsas do ITS para analise e comunicação dos dados da Pesquisa **Mudanças Climáticas na percepção dos brasileiros**. O dashboard é resultado da aplicação da técnica de análise de classes latentes que dividiu a população em 4 grupos de percepção: **"Os Antenados, Perdidos, Desligados e Incrédulos"**. Você pode acessar o dashboard clicando no link abaixo ou ver como utilizar a ferramenta assistindo o video desta página.
+Conheça o projeto "Os grupos brasileiros de percepção das mudanças climáticas" produzido no programa de bolsas do ITS para analise e comunicação dos dados da Pesquisa **Mudanças Climáticas na percepção dos brasileiros**. O dashboard é resultado da aplicação da técnica de análise de classes latentes que dividiu a população em 4 grupos de percepção: **"Os Antenados, Perdidos, Desligados e Incrédulos"**.
+
+![Imagem contendo quatro circulos, cada um ilustrando um dos grupos Antenados, Perdidos, Desligados e Incrédulos, abaixo uma linha mostra que os grupos vão dos mais preocupados, os Antenados, aos menos preocupados, os incrédulos](/assets/grupos_page.png)
+
+Você pode acessar o dashboard clicando no link abaixo ou ver como utilizar a ferramenta assistindo o video desta página.
 
 ![Imagem ilustrando os publicos brasileiros contendo pessoas dos grupos Antenados, Perdidos, Desligados e Incrédulos misturados formando um grupo colorido com o texto " Os grupos brasileiros de percepção das mudanças climáticas" e abaixo um texto menor escrito clique no link abaixo para ver o Dashboard](/assets/home5.png)
 

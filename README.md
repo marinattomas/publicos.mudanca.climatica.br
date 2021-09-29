@@ -13,8 +13,7 @@ Conheça o projeto "Os grupos brasileiros de percepção das mudanças climátic
 
 
 <video src="https://user-images.githubusercontent.com/19768592/135179150-e066f65a-4fb0-4d57-a9b0-09f1e0173d7b.mp4" controls="controls" style="max-width: 730px;">  </video>
-
-
+*Uma correção no vídeo: o último grupo foi denominado céticos porém em uma revisão posterior este grupo foi renomeado como incrédulo"
 
 ## Sobre o Dasboard
 

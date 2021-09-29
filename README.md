@@ -8,7 +8,7 @@ Você pode acessar o dashboard clicando no link abaixo ou ver como utilizar a fe
 
 ![Imagem ilustrando os publicos brasileiros contendo pessoas dos grupos Antenados, Perdidos, Desligados e Incrédulos misturados formando um grupo colorido com o texto " Os grupos brasileiros de percepção das mudanças climáticas" e abaixo um texto menor escrito clique no link abaixo para ver o Dashboard](/assets/home5.png)
 
-### <div style="text-align: right"> [Link para o Dashboard](http://percepcao-brasil-mudclima.herokuapp.com/) </div>
+### [Link para o Dashboard](http://percepcao-brasil-mudclima.herokuapp.com/)
 
 * * *
 

@@ -4,7 +4,7 @@ Conheça o projeto "Os grupos brasileiros de percepção das mudanças climátic
 
 ![Imagem contendo quatro circulos, cada um ilustrando um dos grupos Antenados, Perdidos, Desligados e Incrédulos, abaixo uma linha mostra que os grupos vão dos mais preocupados, os Antenados, aos menos preocupados, os incrédulos](/assets/grupos_page.png)
 
-Você pode acessar o dashboard clicando no [Link ](http://percepcao-brasil-mudclima.herokuapp.com/) ou ver primeiro como utilizar a ferramenta assistindo o video desta página.
+Você pode acessar o dashboard clicando [Neste Link ](http://percepcao-brasil-mudclima.herokuapp.com/) ou ver primeiro como utilizar a ferramenta assistindo o video desta página.
 
 ![Imagem ilustrando os publicos brasileiros contendo pessoas dos grupos Antenados, Perdidos, Desligados e Incrédulos misturados formando um grupo colorido com o texto " Os grupos brasileiros de percepção das mudanças climáticas" e abaixo um texto menor escrito clique no link abaixo para ver o Dashboard](/assets/home5.png)
 

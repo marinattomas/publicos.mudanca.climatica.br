@@ -13,7 +13,7 @@ Você pode acessar o dashboard clicando [Neste Link ](http://percepcao-brasil-mu
 
 
 <video src="https://user-images.githubusercontent.com/19768592/135179150-e066f65a-4fb0-4d57-a9b0-09f1e0173d7b.mp4" controls="controls" style="max-width: 730px;">  </video>
-*Uma correção no vídeo: o último grupo foi denominado céticos porém em uma revisão posterior este grupo foi renomeado como incrédulo*
+*Uma correção no vídeo: No vídeo o último grupo é denominado céticos porém em uma revisão posterior do trabalho este grupo foi renomeado como incrédulo*
 
 ### [Link para o Dashboard](http://percepcao-brasil-mudclima.herokuapp.com/)
 

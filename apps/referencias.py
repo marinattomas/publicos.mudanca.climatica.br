@@ -3,7 +3,7 @@ from dash.dependencies import Input, Output
 from dash import dcc, html
 import dash_bootstrap_components as dbc
 from . import layout as lb
-from app import app
+from src import app
 
 
 

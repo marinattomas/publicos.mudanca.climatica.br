@@ -2,7 +2,7 @@ import dash
 from dash.dependencies import Input, Output
 from dash import dcc, html
 import dash_bootstrap_components as dbc
-from app import app
+from src import app
 import pandas as pd
 from . import layout as lb
 import plotly.graph_objs as go

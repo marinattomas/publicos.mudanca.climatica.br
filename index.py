@@ -2,7 +2,7 @@ import dash
 from dash.dependencies import Input, Output
 from dash import dcc, html
 
-from app import app
+from src import app
 from apps import home, grupos, campanhas, publico, referencias, sobre
 
 server = app.server

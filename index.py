@@ -1,7 +1,5 @@
-import dash_core_components as dcc
-import dash_html_components as html
 from dash.dependencies import Input, Output
-
+from dash import dcc, html
 from app import app
 from apps import home, grupos, campanhas, publico, referencias, sobre
 

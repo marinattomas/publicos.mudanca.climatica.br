@@ -6,7 +6,7 @@ A pesquisa original é uma parceria do ITS, com o programa de comunicação das 
 
 ![Imagem contendo quatro circulos, cada um ilustrando um dos grupos Antenados, Perdidos, Desligados e Incrédulos, abaixo uma linha mostra que os grupos vão dos mais preocupados, os Antenados, aos menos preocupados, os incrédulos](/assets/grupos_page.png)
 
-Você pode acessar o dashboard clicando [Neste Link ](http://percepcao-brasil-mudclima.herokuapp.com/) ou ver primeiro como utilizar a ferramenta assistindo o vídeo desta página.
+Você pode acessar o dashboard clicando [Neste Link ](https://publicosdoclimabr.onrender.com/) ou ver primeiro como utilizar a ferramenta assistindo o vídeo desta página.
 
 * * *
 
@@ -15,7 +15,7 @@ Você pode acessar o dashboard clicando [Neste Link ](http://percepcao-brasil-mu
 <video src="https://user-images.githubusercontent.com/19768592/135179150-e066f65a-4fb0-4d57-a9b0-09f1e0173d7b.mp4" controls="controls" style="max-width: 730px;">  </video>
 *Uma correção: No vídeo o último grupo é denominado céticos porém em uma revisão posterior do trabalho este grupo foi renomeado como incrédulo*
 
-### [Link para o Dashboard](http://percepcao-brasil-mudclima.herokuapp.com/)
+### [Link para o Dashboard](https://publicosdoclimabr.onrender.com/)
 
 * * *
 

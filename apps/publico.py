@@ -1,5 +1,5 @@
-import dash_core_components as dcc
-import dash_html_components as html
+from dash.dependencies import Input, Output
+from dash import dcc, html
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
 from app import app
@@ -83,7 +83,7 @@ def plotaGraficoClasse(socio,filtros):
 
 ## sessão de checklists dos sociodemográficos
 checklist_genero = html.Div(children=
-        [dbc.FormGroup(
+        [dbc.Row(
                         [
                             dbc.Label("Escolha um:"),
                             dbc.Checklist(
@@ -102,7 +102,7 @@ checklist_genero = html.Div(children=
         html.Br()]
 )
 
-checklist_idade = dbc.FormGroup(
+checklist_idade = dbc.Row(
     [
         dbc.Label("Escolha um:"),
         dbc.Checklist(
@@ -122,7 +122,7 @@ checklist_idade = dbc.FormGroup(
 )
 
 checklist_escolaridade = html.Div(children=
-        [dbc.FormGroup(
+        [dbc.Row(
                     [
                         dbc.Label("Escolha um:"),
                         dbc.Checklist(
@@ -142,7 +142,7 @@ checklist_escolaridade = html.Div(children=
 )
 
 checklist_regiao = html.Div(children=
-        [dbc.FormGroup(
+        [dbc.Row(
     [
         dbc.Label("Escolha um:"),
         dbc.Checklist(
@@ -165,7 +165,7 @@ checklist_regiao = html.Div(children=
     )
 
 checklist_classe =  html.Div(children=
-        [dbc.FormGroup(
+        [dbc.Row(
             [
                 dbc.Label("Escolha um:"),
                 dbc.Checklist(
@@ -187,7 +187,7 @@ checklist_classe =  html.Div(children=
     html.Br()]
     )
 
-checklist_religiao = dbc.FormGroup(
+checklist_religiao = dbc.Row(
     [
         dbc.Label("Escolha um:"),
         dbc.Checklist(
@@ -207,7 +207,7 @@ checklist_religiao = dbc.FormGroup(
 
 
 checklist_Posicao_politica = html.Div(children=
-        [dbc.FormGroup(
+        [dbc.Row(
     [
         dbc.Label("Escolha um:"),
         dbc.Checklist(
@@ -229,7 +229,7 @@ checklist_Posicao_politica = html.Div(children=
     )
 
 checklist_raca =  html.Div(children=
-        [dbc.FormGroup(
+        [dbc.Row(
     [
         dbc.Label("Escolha um:"),
         dbc.Checklist(
@@ -252,7 +252,7 @@ checklist_raca =  html.Div(children=
     )
 
 
-checklist_internet = dbc.FormGroup(
+checklist_internet = dbc.Row(
     [
         dbc.Label("Escolha um:"),
         dbc.Checklist(
